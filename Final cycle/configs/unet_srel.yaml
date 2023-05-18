@@ -1,0 +1,34 @@
+dataset_name: 'IKEM SRel'
+type: 'srel'
+model: 'U-Net'
+model_path: 'E:/Master Thesis/Models/1681915228.861842_U-Net_IKEM SRel'
+lab: False
+overlay: True
+image_size: 512
+channels: 3
+input_images: 1
+output_masks: 1
+batch_size: 8
+epochs: 25
+padding: 'same'
+filters: 32
+classes:
+  - 'endocariums'
+initializer: 'he_normal'
+activation: 'sigmoid'
+kernel_size: 3
+up: 'conv'
+pool: 'max'
+learning_rate: 0.0005
+dropout: 0.2
+threshold: 0.5
+loss:
+  name: 'tverskyLoss'
+optimizer:
+  name: 'Adam'
+metrics:
+  - name: 'Precision'
+  - name: 'Recall'
+  - name: 'IOUScore'
+  - name: 'MeanIoU'
+    num_classes: 2

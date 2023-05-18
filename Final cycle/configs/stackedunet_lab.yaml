@@ -1,0 +1,26 @@
+dataset_name: 'IKEM'
+type: 'he'
+model: 'StackedUnet'
+model_path: 'C:/Users/ivanv/Desktop/Ivan/FIIT/02_ING/Master thesis/Code/Segmentation/Saved_models/1677401409.0102382_StackedUnet_IKEM'
+lab: True
+overlay: True
+image_size: 256
+channels: 3
+input_images: 2
+output_masks: 3
+batch_size: 8
+epochs: 15
+padding: 'same'
+filters: 16
+classes:
+  - 'blood_vessels'
+  - 'inflammations'
+  - 'endocariums'
+initializer: 'he_normal'
+activation: 'sigmoid'
+kernel_size: 3
+up: 'conv'
+pool: 'max'
+learning_rate: 0.0001
+dropout: 0.2
+threshold: 0.25

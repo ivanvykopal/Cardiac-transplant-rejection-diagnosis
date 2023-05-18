@@ -1,0 +1,39 @@
+dataset_name: 'IKEM'
+type: 'he'
+model: 'U-Net++'
+model_path: 'D:/Master Thesis/Code/Segmentation/results/1676994769.867802_U-Net++_IKEM'
+json_path: './data/images_256-128-splitted.json'
+data_path: 'D:/Master Thesis/Code/Segmentation/data4'
+output_path: 'D:/Master Thesis/Code/Segmentation/results'
+lab: False
+overlay: True
+image_size: 256
+channels: 4
+input_images: 2
+output_masks: 1
+batch_size: 16
+epochs: 15
+padding: 'same'
+filters: 32
+classes:
+  - 'blood_vessels'
+  - 'inflammations'
+  - 'endocariums'
+initializer: 'he_normal'
+activation: 'sigmoid'
+kernel_size: 3
+up: 'conv'
+pool: 'max'
+learning_rate: 0.0001
+dropout: 0.2
+threshold: 0.25
+loss:
+  name: 'DiceFocalLoss'
+optimizer:
+  name: 'Adam'
+metrics:
+  - name: 'Precision'
+  - name: 'Recall'
+  - name: 'IOUScore'
+  - name: 'MeanIoU'
+    num_classes: 2

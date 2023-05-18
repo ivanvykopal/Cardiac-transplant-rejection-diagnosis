@@ -1,0 +1,36 @@
+dataset_name: 'IKEM SRel'
+type: 'he'
+model: 'MultiScaleAttUnet'
+model_path: 'D:/Master Thesis/Code/Segmentation/results/1669415792.4626224_MultiScaleAttUnet_IKEM'
+lab: False
+overlay: True
+image_size: 256
+channels: 3
+input_images: 3
+output_masks: 1
+batch_size: 4
+epochs: 30
+padding: 'same'
+filters: 32
+classes:
+  - 'blood_vessels'
+  - 'endocariums'
+  - 'inflammations'
+initializer: 'he_normal'
+activation: 'sigmoid'
+kernel_size: 3
+up: 'conv'
+pool: 'max'
+learning_rate: 0.0005
+dropout: 0.2
+threshold: 0.25
+loss:
+  name: 'DiceFocalLoss'
+optimizer:
+  name: 'Adam'
+metrics:
+  - name: 'Precision'
+  - name: 'Recall'
+  - name: 'IOUScore'
+  - name: 'MeanIoU'
+    num_classes: 2
