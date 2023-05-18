@@ -1,0 +1,54 @@
+.idea
+.ipynb_checkpoints
+.venv
+.vscode
+solaris
+__pycache__
+
+VSI processing/images
+VSI processing/VSI files
+data
+MoNuSAC_images_and_annotations
+wandb
+PerceptilLabs
+data2
+lizard-data
+Evaluation/models
+
+*.png
+*.tif
+*.jpg
+*.zip
+*.hdf5
+*.csv
+*.tsv
+*.svg
+temp
+
+Segmentation/Utils/Preprocessing/normalization
+Segmentation/Saved_models
+Azure/*
+
+*.geojson
+areas.txt
+166*
+checkpoint
+
+Export nuclei.ipynb
+Clustering/clustering-all.ipynb
+
+NOTES.md
+CHANGELOG.md
+
+#secrets
+azure_config.json
+database_config.json
+
+# jsons
+images.json
+config.json
+images_512.json
+images-test.json
+images-train.json
+
+Azure
