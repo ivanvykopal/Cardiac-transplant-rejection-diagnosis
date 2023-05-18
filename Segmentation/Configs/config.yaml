@@ -1,0 +1,36 @@
+dataset_name: 'IKEM'
+model: 'StackedUnet'
+json_path: './data/images_256-128-splitted.json'
+data_path: 'D:/Master Thesis/Code/Segmentation/data4'
+output_path: 'D:/Master Thesis/Code/Segmentation/results'
+lab: False
+image_size: 256
+channels: 3
+input_images: 3
+output_masks: 4
+batch_size: 4
+epochs: 5
+padding: 'same'
+filters: 16
+classes:
+  - 'blood_vessels'
+  - 'inflammations'
+  - 'endocariums'
+initializer: 'he_normal'
+activation: 'sigmoid'
+kernel_size: 3
+up: 'conv'
+pool: 'max'
+learning_rate: 0.0001
+dropout: 0.25
+threshold: 0.5
+loss:
+  name: 'DiceFocalLoss'
+optimizer:
+  name: 'Adam'
+metrics:
+  - name: 'Precision'
+  - name: 'Recall'
+  - name: 'IOUScore'
+  - name: 'MeanIoU'
+    num_classes: 2

@@ -1,0 +1,61 @@
+{
+  "dataset_name": "IKEM",
+  "model": "MultiscaleAttUnet",
+  "json_path": './data/images_256-128-splitted.json',
+  "data_path": 'D:/Master Thesis/Code/Segmentation/data4',
+  "output_path": 'D:/Master Thesis/Code/Segmentation/results',
+  "image_size": 256,
+  "channels": 3,
+  "batch_size": 4,
+  "epochs": 15,
+  "padding": "same",
+  "filters": 32,
+  "classes": [
+    "blood_vessels",
+    "endocariums",
+    "fatty_tissues",
+    "inflammations",
+    "quilties"
+  ],
+  "final_classes": [
+    "background",
+    "vessels_inflammations",
+    "endocariums_inflammations",
+    "blood_vessels",
+    "endocariums",
+    "fatty_tissues",
+    "inflammations",
+    "quilties"
+  ],
+  "initializer": "glorot_uniform",
+  "activation": "softmax",
+  "kernel_size": 3,
+  "up": "conv",
+  "pool": "max",
+  "optimizer": {
+    "name": "Adam"
+  },
+  "learning_rate": 0.0001,
+  "dropout": 0.2,
+  "threshold": 0.5,
+  "augmentations": [
+    {"type": "flip", "mode": "horizontal_vertical"}
+  ],
+  "loss": {
+    "name": "FocalLoss"
+  },
+  "metrics": [
+    {
+      "name": "Accuracy"
+    },
+    {
+      "name": "Precision"
+    },
+    {
+      "name": "Recall"
+    },
+    {
+      "name": "diceCoef"
+    }
+  ]
+}

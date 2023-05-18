@@ -1,0 +1,49 @@
+{
+  "dataset_name": "IKEM",
+  "model": "DeepLabV3+",
+  "json_path": './data/images_512-256-splitted.json',
+  "data_path": 'D:/Master Thesis/Code/Segmentation/data4',
+  "output_path": 'D:/Master Thesis/Code/Segmentation/results',
+  "image_size": 512,
+  "channels": 3,
+  "batch_size": 4,
+  "epochs": 25,
+  "padding": "same",
+  "filters": 32,
+  "classes": [
+    "blood_vessels",
+    "inflammations",
+    "endocariums"
+  ],
+  "final_classes": [
+    "background",
+    "blood_vessels",
+    "inflammations",
+    "endocariums"
+  ],
+  "initializer": "he_normal",
+  "activation": "softmax",
+  "kernel_size": 3,
+  "up": "conv",
+  "pool": "max",
+  "optimizer": {
+    "name": "Adam"
+  },
+  "learning_rate": 0.0001,
+  "dropout": 0.5,
+  "threshold": 0.5,
+  "augmentations": [
+    {"type": "flip", "mode": "horizontal"}
+  ],
+  "loss": {
+    "name": "SparseCategoricalCrossentropy"
+  },
+  "metrics": [
+    {
+      "name": "Accuracy"
+    },
+    {
+      "name": "SparseCategoricalAccuracy"
+    }
+  ]
+}

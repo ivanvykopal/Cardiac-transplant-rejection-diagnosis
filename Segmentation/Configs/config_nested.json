@@ -1,0 +1,41 @@
+{
+  "DATASET_NAME": "LIZARD",
+  "IMAGE_SIZE": 512,
+  "CHANNELS": 3,
+  "BATCH_SIZE": 4,
+  "EPOCHS": 100,
+  "PADDING": "same",
+  "DTYPE": "float32",
+  "FILTERS": 32,
+  "INITIALIZER": "he_normal",
+  "ACTIVATION": "sigmoid",
+  "KERNEL_SIZE": [
+    3,
+    3
+  ],
+  "LEARNING_RATE": 0.001,
+  "DROPOUT": 0.5,
+  "THRESHOLD": 0.5,
+  "AUGMENTATIONS": [],
+  "LOSS": {
+    "name": "diceCoefLoss"
+  },
+  "METRICS": [
+    {
+      "name": "Accuracy"
+    },
+    {
+      "name": "Precision"
+    },
+    {
+      "name": "Recall"
+    },
+    {
+      "name": "MeanIoU",
+      "num_classes": 2
+    },
+    {
+      "name": "diceCoef"
+    }
+  ]
+}
