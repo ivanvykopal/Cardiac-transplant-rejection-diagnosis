@@ -9,7 +9,7 @@ class Database:
     def __init__(self, config_name=None):
         if config_name is None:
             config_name = './Utils/Preprocessing/database_config.json'
-            
+
         self.cursor = None
         self.connection = None
 
@@ -69,9 +69,9 @@ class Database:
     def commit(self):
         self.connection.commit()
 
-    #TODO: finish code for data importing
     def import_annotations(self, json_data, file_name):
-        self.execute_insert("INSERT INTO files (file_name) VALUES(%s)", (file_name, ))
+        self.execute_insert(
+            "INSERT INTO files (file_name) VALUES(%s)", (file_name, ))
 
         data = {
             'immune_cells': [],
@@ -144,9 +144,11 @@ class Database:
 
         annotations = dict()
         for annotation_class in annotation_classes:
-            class_annotations = self.get_annotations_by_table(annotation_class, file_name, xfactor, yfactor)
+            class_annotations = self.get_annotations_by_table(
+                annotation_class, file_name, xfactor, yfactor)
             annotations[annotation_class] = [
-                {'scaled_annotation': mapping(wkb.loads(annotation[0], hex=True))}
+                {'scaled_annotation': mapping(
+                    wkb.loads(annotation[0], hex=True))}
                 for annotation in class_annotations
             ]
 
@@ -165,13 +167,16 @@ class Database:
             ]
 
         x, y, size = patch
-        hex_square = wkb.dumps(Polygon(self._create_polygon(x, y, size)), hex=True, srid=4326)
+        hex_square = wkb.dumps(
+            Polygon(self._create_polygon(x, y, size)), hex=True, srid=4326)
 
         annotations = dict()
         for annotation_class in annotation_classes:
-            class_annotations = self.get_annotations_patch_by_table(annotation_class, file_name, hex_square, xfactor, yfactor)
+            class_annotations = self.get_annotations_patch_by_table(
+                annotation_class, file_name, hex_square, xfactor, yfactor)
             annotations[f"{annotation_class}_patch"] = [
-                {'scaled_annotation': mapping(wkb.loads(annotation[0], hex=True))}
+                {'scaled_annotation': mapping(
+                    wkb.loads(annotation[0], hex=True))}
                 for annotation in class_annotations
             ]
 
